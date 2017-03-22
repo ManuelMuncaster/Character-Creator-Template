@@ -32,17 +32,20 @@ namespace CharacterCreator
 
         private void mageButton_Click(object sender, EventArgs e)
         {
-
+            imageBox.BackgroundImage = Properties.Resources.mage2;
+            heroType = "mage";
         }
 
         private void rangerButton_Click(object sender, EventArgs e)
         {
-
+            imageBox.BackgroundImage = Properties.Resources.ranger;
+            heroType = "ranger";
         }
 
         private void fighterButton_Click(object sender, EventArgs e)
         {
-
+            imageBox.BackgroundImage = Properties.Resources.fighter;
+            heroType = "fighter";
         }
 
         #endregion
@@ -54,32 +57,86 @@ namespace CharacterCreator
 
         private void dexPlus_Click(object sender, EventArgs e)
         {
+            dexterity++;
+            points--;
+
+            dexInput.Text = dexterity.ToString();
+            pointsLabel.Text = points.ToString();
+
+            if (points <= 1)
+            {
+                dexPlus.Enabled = false;
+            }
+            if (points >= 1)
+            {
+                dexPlus.Enabled = true;
+            }
+
+            if (dexterity <= 1)
+            {
+                dexMinus.Enabled = true;
+            }
 
         }
 
         private void dexMinus_Click(object sender, EventArgs e)
         {
+            dexterity--;
+            points++;
+
+            dexInput.Text = dexterity.ToString();
+            pointsLabel.Text = points.ToString();
+
+            if (points >= 0)
+            {
+                dexPlus.Enabled = true;
+            }
+
+            if (dexterity <= 1)
+            {
+                dexMinus.Enabled = false;
+            }
+            if (dexterity >= 1)
+            {
+                dexMinus.Enabled = true;
+            }
 
         }
 
         private void strengthPlus_Click(object sender, EventArgs e)
         {
+            strength++;
+            points--;
 
+            strengthInput.Text = strength.ToString();
+            pointsLabel.Text = points.ToString();
         }
 
         private void StregthMinus_Click(object sender, EventArgs e)
         {
+            strength--;
+            points++;
 
+            strengthInput.Text = strength.ToString();
+            pointsLabel.Text = points.ToString();
         }
 
         private void healthPlus_Click(object sender, EventArgs e)
         {
+            health++;
+            points--;
 
+            healthInput.Text = health.ToString();
+            pointsLabel.Text = points.ToString();
         }
 
         private void healthMinus_Click(object sender, EventArgs e)
         {
+            health--;
+            points++;
 
+            healthInput.Text = health.ToString();
+            pointsLabel.Text = points.ToString();
         }
 
         #endregion
@@ -121,12 +178,23 @@ namespace CharacterCreator
 
             //TODO: close this screen and open the Home Screen
 
+            Form f = this.FindForm();
+            f.Controls.Remove(this);
+
+            HomeScreen hs = new HomeScreen();
+            f.Controls.Add(hs);
+
         }
 
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
             //TODO: close this screen and open the Home Screen
+            Form f = this.FindForm();
+            f.Controls.Remove(this);
+
+            HomeScreen hs = new HomeScreen();
+            f.Controls.Add(hs);
         }
     }
 }

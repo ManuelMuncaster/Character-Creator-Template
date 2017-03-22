@@ -14,12 +14,20 @@ namespace CharacterCreator
     {
         //TODO: create a object list, (call it characterDB), to hold your character information.
         //NOTE: You will need to create the Character class first.
+       public static List<Character> characterDB = new List<Character>();
 
         public MainForm()
         {
             InitializeComponent();
 
+            Form f = this.FindForm();
+            f.Controls.Remove(this);
+
+            HomeScreen hs = new HomeScreen();
+            f.Controls.Add(hs);
+
             //TODO: create code to launch the HomeScreen when the program starts
+
         }
     }
 }
