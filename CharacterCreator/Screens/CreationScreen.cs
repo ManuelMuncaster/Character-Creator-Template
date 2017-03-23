@@ -33,19 +33,19 @@ namespace CharacterCreator
         private void mageButton_Click(object sender, EventArgs e)
         {
             imageBox.BackgroundImage = Properties.Resources.mage2;
-            heroType = "mage";
+            heroType = "Mage";
         }
 
         private void rangerButton_Click(object sender, EventArgs e)
         {
             imageBox.BackgroundImage = Properties.Resources.ranger;
-            heroType = "ranger";
+            heroType = "Ranger";
         }
 
         private void fighterButton_Click(object sender, EventArgs e)
         {
             imageBox.BackgroundImage = Properties.Resources.fighter;
-            heroType = "fighter";
+            heroType = "Fighter";
         }
 
         #endregion
@@ -255,11 +255,11 @@ namespace CharacterCreator
             hea = health.ToString();
 
 
-            //TODO: create character object and place it characterDB
+            //create character object and place it characterDB
 
             Character char1 = new Character(name, heroType, dex, str, hea, perk);
 
-            characterDB.Add(char1);z
+            MainForm.characterDB.Add(char1);
 
             //Close this screen and open the Home Screen
 
