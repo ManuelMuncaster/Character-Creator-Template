@@ -28,7 +28,7 @@ namespace CharacterCreator
         }
 
         #region character type
-        //TODO: For each button click set the image on screen and the heroType variable
+        //For each button click set the image on screen and the heroType variable
 
         private void mageButton_Click(object sender, EventArgs e)
         {
@@ -216,26 +216,26 @@ namespace CharacterCreator
         #endregion
 
         #region perks
-        //TODO: set the perk variable based on the selected radio button
+        //set the perk variable based on the selected radio button
 
         private void sneakRadio_CheckedChanged(object sender, EventArgs e)
         {
-            
+            perk = "Sneak";
         }
 
         private void charmRadio_CheckedChanged(object sender, EventArgs e)
         {
-
+            perk = "Charm";
         }
 
         private void intuitionRadio_CheckedChanged(object sender, EventArgs e)
         {
-
+            perk = "Intuition";
         }
 
         private void speedRadio_CheckedChanged(object sender, EventArgs e)
         {
-
+            perk = "Speed";
         }
 
         #endregion
@@ -246,9 +246,20 @@ namespace CharacterCreator
             // used to temporarly hold values that will then be used to creat object
             string dex, str, hea;
 
-            //TODO: get name from input and set dex, str, and hea
+            //get name from input and set dex, str, and hea
+
+            name = nameInput.Text;
+
+            dex = dexterity.ToString();
+            str = strength.ToString();
+            hea = health.ToString();
+
 
             //TODO: create character object and place it characterDB
+
+            Character char1 = new Character(name, heroType, dex, str, hea, perk);
+
+            characterDB.Add(char1);z
 
             //Close this screen and open the Home Screen
 
