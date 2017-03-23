@@ -19,7 +19,7 @@ namespace CharacterCreator
 
         private void createButton_Click(object sender, EventArgs e)
         {
-            //TODO: create code to close this screen and show the CreationScreen
+            //create code to close this screen and show the CreationScreen
             Form f = this.FindForm();
             f.Controls.Remove(this);
 
@@ -29,7 +29,7 @@ namespace CharacterCreator
 
         private void viewButton_Click(object sender, EventArgs e)
         {
-            //TODO: create code to close this screen and show the ViewScreen
+            //create code to close this screen and show the ViewScreen
             Form f = this.FindForm();
             f.Controls.Remove(this);
 
@@ -39,7 +39,7 @@ namespace CharacterCreator
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-            //TODO: create code to close whole program (Application.Exit())
+            //create code to close whole program (Application.Exit())
 
             Application.Exit();
         }

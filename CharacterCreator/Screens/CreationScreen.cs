@@ -51,7 +51,7 @@ namespace CharacterCreator
         #endregion
 
         #region attributes
-        //TODO: For each button click add or remove 1 from the appropriate attribute display on screen. 
+        // For each button click add or remove 1 from the appropriate attribute display on screen. 
         // Also either add or remove 1 to the points variable. Do not allow points to go below 0 
         // or for the user to be able to add more points if they have all been used up.
 
@@ -66,10 +66,14 @@ namespace CharacterCreator
             if (points <= 1)
             {
                 dexPlus.Enabled = false;
+                strengthPlus.Enabled = false;
+                healthPlus.Enabled = false;
             }
             if (points >= 1)
             {
                 dexPlus.Enabled = true;
+                strengthPlus.Enabled = true;
+                healthPlus.Enabled = true;
             }
 
             if (dexterity <= 1)
@@ -87,9 +91,11 @@ namespace CharacterCreator
             dexInput.Text = dexterity.ToString();
             pointsLabel.Text = points.ToString();
 
-            if (points >= 0)
+            if (points >= 1)
             {
                 dexPlus.Enabled = true;
+                strengthPlus.Enabled = true;
+                healthPlus.Enabled = true;
             }
 
             if (dexterity <= 1)
@@ -110,6 +116,24 @@ namespace CharacterCreator
 
             strengthInput.Text = strength.ToString();
             pointsLabel.Text = points.ToString();
+
+            if (points <= 1)
+            {
+                dexPlus.Enabled = false;
+                strengthPlus.Enabled = false;
+                healthPlus.Enabled = false;
+            }
+            if (points >= 1)
+            {
+                dexPlus.Enabled = true;
+                strengthPlus.Enabled = true;
+                healthPlus.Enabled = true;
+            }
+
+            if (strength <= 1)
+            {
+                stregthMinus.Enabled = true;
+            }
         }
 
         private void StregthMinus_Click(object sender, EventArgs e)
@@ -119,6 +143,22 @@ namespace CharacterCreator
 
             strengthInput.Text = strength.ToString();
             pointsLabel.Text = points.ToString();
+
+            if (points >= 1)
+            {
+                dexPlus.Enabled = true;
+                strengthPlus.Enabled = true;
+                healthPlus.Enabled = true;
+            }
+
+            if (strength <= 1)
+            {
+                stregthMinus.Enabled = false;
+            }
+            if (strength >= 1)
+            {
+                stregthMinus.Enabled = true;
+            }
         }
 
         private void healthPlus_Click(object sender, EventArgs e)
@@ -128,6 +168,24 @@ namespace CharacterCreator
 
             healthInput.Text = health.ToString();
             pointsLabel.Text = points.ToString();
+
+            if (points <= 1)
+            {
+                dexPlus.Enabled = false;
+                strengthPlus.Enabled = false;
+                healthPlus.Enabled = false;
+            }
+            if (points >= 1)
+            {
+                dexPlus.Enabled = true;
+                strengthPlus.Enabled = true;
+                healthPlus.Enabled = true;
+            }
+
+            if (health <= 1)
+            {
+                healthMinus.Enabled = true;
+            }
         }
 
         private void healthMinus_Click(object sender, EventArgs e)
@@ -137,6 +195,22 @@ namespace CharacterCreator
 
             healthInput.Text = health.ToString();
             pointsLabel.Text = points.ToString();
+
+            if (points >= 1)
+            {
+                dexPlus.Enabled = true;
+                strengthPlus.Enabled = true;
+                healthPlus.Enabled = true;
+            }
+
+            if (health <= 1)
+            {
+                healthMinus.Enabled = false;
+            }
+            if (health >= 1)
+            {
+                healthMinus.Enabled = true;
+            }
         }
 
         #endregion
@@ -146,7 +220,7 @@ namespace CharacterCreator
 
         private void sneakRadio_CheckedChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void charmRadio_CheckedChanged(object sender, EventArgs e)
@@ -176,7 +250,7 @@ namespace CharacterCreator
 
             //TODO: create character object and place it characterDB
 
-            //TODO: close this screen and open the Home Screen
+            //Close this screen and open the Home Screen
 
             Form f = this.FindForm();
             f.Controls.Remove(this);
@@ -189,7 +263,7 @@ namespace CharacterCreator
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            //TODO: close this screen and open the Home Screen
+            //Close this screen and open the Home Screen
             Form f = this.FindForm();
             f.Controls.Remove(this);
 
