@@ -36,6 +36,8 @@ namespace CharacterCreator
 
         private void exitButton_Click(object sender, EventArgs e)
         {
+
+
             Form f = this.FindForm();
             f.Controls.Remove(this);
 
