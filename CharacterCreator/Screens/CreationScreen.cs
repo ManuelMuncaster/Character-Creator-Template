@@ -22,7 +22,7 @@ namespace CharacterCreator
         public CreationScreen()
         {
             InitializeComponent();
-            loadHero();
+          
 
             //each attribute and extra points value is set to 5 to start
             dexterity = strength = health = points = 5;
@@ -256,7 +256,6 @@ namespace CharacterCreator
             str = strength.ToString();
             hea = health.ToString();
 
-
             //create character object and place it characterDB
 
             Character char1 = new Character(name, heroType, dex, str, hea, perk);
@@ -284,12 +283,12 @@ namespace CharacterCreator
                 //"Hero" element
                 writer.WriteStartElement("hero");
                 //Sub Elements
-                writer.WriteStartElement("name", c.name);
-                writer.WriteStartElement("heroType", c.charClass);
-                writer.WriteStartElement("dex", c.dexterity);
-                writer.WriteStartElement("str", c.strength);
-                writer.WriteStartElement("hea", c.health);
-                writer.WriteStartElement("perk", c.perk);
+                writer.WriteElementString("name", c.name);
+                writer.WriteElementString("heroType", c.charClass);
+                writer.WriteElementString("dex", c.dexterity);
+                writer.WriteElementString("str", c.strength);
+                writer.WriteElementString("hea", c.health);
+                writer.WriteElementString("perk", c.perk);
 
                 writer.WriteEndElement();
             }
@@ -297,56 +296,7 @@ namespace CharacterCreator
 
             writer.Close();
         }
-        public void loadHero()
-        {
-            //Temp variables to store heroes stats
-            string newName = "";
-            string newClass = "";
-            string newDex = "";
-            string newStr = "";
-            string newHea = "";
-            string newPerk = "";
-
-            int items = 1;
-
-            XmlTextReader reader = new XmlTextReader("heroes.xml");
-
-            while (reader.Read())
-            {
-                if (reader.NodeType == XmlNodeType.Text)
-                {
-                    switch(items)
-                    {
-                        case 1:
-                            newName = reader.Value;
-                            break;
-                        case 2:
-                            newClass = reader.Value;
-                            break;
-                        case 3:
-                            newDex = reader.Value;
-                            break;
-                        case 4:
-                            newStr = reader.Value;
-                            break;
-                        case 5:
-                            newHea = reader.Value;
-                            break;
-                        case 6:
-                            newPerk = reader.Value;
-                            Character newCharacter = new Character(newName, newClass, newDex, newStr, newHea, newPerk);
-                            MainForm.characterDB.Add(newCharacter);
-                            items = 0;
-                            break;
-                    }
-
-                    items++;
-                }
-            }
-            reader.Close();
-
-        }
-
+        
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
